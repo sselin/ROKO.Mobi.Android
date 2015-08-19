@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <color name="message_view_text_cl">#ffffff</color>
+    <color name="share_layout_bg">#373854</color>
+    <color name="share_cancel_bg">#0f1839</color>
+    <color name="share_cancel_tx">#8ab7ca</color>
+    <drawable name="translucent_background">#00000000</drawable>
+
+</resources>

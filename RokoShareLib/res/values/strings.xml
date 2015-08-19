@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RokolabShare</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="prompt_view_df">Share this story on…</string>
+    <string name="cancel_bt">Cancel</string>
+    <string name="sendMailTitle">Send mail...</string>
+    <string name="sendFaceBookTitle">Send facebook...</string>
+    <string name="sendTwitterTitle">Send twitter...</string>
+    <string name="simpleMessage">I thought you would find this article interesting…</string>
+    <string name="messageView">Barclays hires a brace of directors from Coutts and Citi Private Bank</string>
+
+</resources>
