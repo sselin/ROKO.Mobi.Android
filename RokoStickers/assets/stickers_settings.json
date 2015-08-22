@@ -1,0 +1,99 @@
+{
+    "apiStatusCode": "Success",
+    "data": {
+        "createDate": "2015-06-18T18:54:26.8083Z",
+        "updateDate": "2015-07-20T17:36:47.7133Z",
+        "addApplicationDefaultWatermark": true,
+        "applicationDefaultWatermark": {
+            "imageFileGroup": {
+                "files": [
+                    {
+                        "file": {
+                            "url": "https://roko-mobi-stage.s3.amazonaws.com/6d16aa15-f62f-4619-aa5a-bf0807b8c376/6fc68ecc-7476-4e9c-b18e-d24f7e68af90",
+                            "objectId": 4589
+                        }
+                    }
+                ],
+                "objectId": 4590
+            },
+            "isApplicationDefault": true,
+            "createDate": "2015-07-20T17:04:58.0405Z",
+            "updateDate": "2015-07-20T17:10:40.1564Z",
+            "objectId": 4592
+        },
+        "usePortalConfiguration": true,
+        "autoSaveToAlbum": true,
+        "albumName": "Stickers",
+        "navigationBar": {
+            "useTextForButtons": true,
+            "leftButtonText": "Back",
+            "rightButtonText": "Next",
+            "buttonFont": {
+                "size": 16,
+                "color": "155, 48, 255"
+            },
+            "leftButtonImageFileGroup": {
+                "files": [
+                    {
+                        "file": {
+                            "url": "https://roko-mobi-stage.s3.amazonaws.com/6d16aa15-f62f-4619-aa5a-bf0807b8c376/a0463318-9f86-412f-b4e1-769e4417e0eb?AWSAccessKeyId=AKIAJ4BP4BDHSKJNAGWA&Expires=1438873460&Signature=%2BVHQAMz7apjB3WMa6hYRAFcVhRg%3D",
+                            "urlExpiresAt": "2015-08-06T15:04:19.5497994Z",
+                            "objectId": 1565
+                        }
+                    }
+                ],
+                "objectId": 1563
+            },
+            "rightButtonImageFileGroup": {
+                "files": [
+                    {
+                        "file": {
+                            "url": "https://roko-mobi-stage.s3.amazonaws.com/6d16aa15-f62f-4619-aa5a-bf0807b8c376/b0ef8833-ce63-4d83-8b6d-870196651e94?AWSAccessKeyId=AKIAJ4BP4BDHSKJNAGWA&Expires=1438873460&Signature=YmtopIEKb%2B0BP6o%2Bi23Q7fkLUx0%3D",
+                            "urlExpiresAt": "2015-08-06T15:04:19.5497994Z",
+                            "objectId": 1567
+                        }
+                    }
+                ],
+                "objectId": 1568
+            },
+            "title": "Stickers",
+            "titleFont": {
+                "size": 22,
+                "color": "155, 48, 255"
+            },
+            "backgroundColor": "255, 245, 238"
+        },
+        "tray": {
+            "font": {
+                "size": 18,
+                "color": "0, 0, 0"
+            },
+            "displayType": "iconOnly",
+            "closeButtonImageFileGroup": {
+                "files": [
+                    {
+                        "file": {
+                            "url": "https://roko-mobi-stage.s3.amazonaws.com/6d16aa15-f62f-4619-aa5a-bf0807b8c376/07bf44bd-b61c-4358-87a9-79c971696d8a?AWSAccessKeyId=AKIAJ4BP4BDHSKJNAGWA&Expires=1438873460&Signature=EKyyr9HkPZ600UsYrWb3hIRHCTQ%3D",
+                            "urlExpiresAt": "2015-08-06T15:04:19.5497994Z",
+                            "objectId": 3183
+                        }
+                    }
+                ],
+                "objectId": 3184
+            },
+            "openButtonImageFileGroup": {
+                "files": [
+                    {
+                        "file": {
+                            "url": "https://roko-mobi-stage.s3.amazonaws.com/6d16aa15-f62f-4619-aa5a-bf0807b8c376/3b6fe7bc-9186-442a-bf11-3bf13a321a39?AWSAccessKeyId=AKIAJ4BP4BDHSKJNAGWA&Expires=1438873460&Signature=7uBgmlnpUEZeUs8k2wRCaRNKbS0%3D",
+                            "urlExpiresAt": "2015-08-06T15:04:19.5497994Z",
+                            "objectId": 3164
+                        }
+                    }
+                ],
+                "objectId": 3165
+            },
+            "backgroundColor": "135, 255, 255, 255"
+        }
+    }
+}
