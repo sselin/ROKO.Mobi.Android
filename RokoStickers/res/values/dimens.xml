@@ -5,5 +5,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="face_layout_height">124dp</dimen>
     <dimen name="pack_icon_size">48dp</dimen>
+    <dimen name="top_and_bottom_bar_height">100dp</dimen>
+    <dimen name="tool_bar_height">75dp</dimen>
 
 </resources>
