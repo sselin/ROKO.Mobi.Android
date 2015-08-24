@@ -59,7 +59,7 @@
             android:layout_centerVertical="true"
             android:clickable="true"
             android:onClick="onClick"
-            android:text="Next"
+            android:text="DONE"
             android:textColor="#0F85DB"
             android:textSize="20sp" />
     </RelativeLayout>

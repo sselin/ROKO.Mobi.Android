@@ -70,7 +70,8 @@
         android:layout_alignParentBottom="true"
         android:background="#FFF" >
 
-        <com.rokolcom.rokomobi.sdk.widget.HorizontalListView     android:id="@+id/visual_gallery"
+        <com.rokomobi.sdk.widget.HorizontalListView     
+            android:id="@+id/visual_gallery"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical" />
@@ -150,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Drag here to remove"
+            android:text="@string/drag_here_to_remove"
             android:textColor="#FFF"
             android:textSize="15sp" />
 

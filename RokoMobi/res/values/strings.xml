@@ -13,5 +13,6 @@
     <string name="sendTwitterTitle">Send twitter...</string>
     <string name="simpleMessage">I thought you would find this article interesting…</string>
     <string name="messageView"></string>
+    <string name="drag_here_to_remove">Drag here to remove</string>
     
 </resources>
