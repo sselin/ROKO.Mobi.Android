@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rokolabs.lib.rokostickers"
     android:versionCode="7"
-    android:versionName="0.1.6" >
+    android:versionName="0.1.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -16,12 +16,12 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:name="com.rokolabs.rokostickers.RokoStickers"
+        android:name="com.rokomobi.sdk.RokoMobi"
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name" >
         <activity
-            android:name="com.rokolabs.rokostickers.StickersActivity"
+            android:name="com.rokomobi.sdk.StickersActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
             <intent-filter>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.rokolabs.rokostickers.camera.StillImageView
+    <com.rokomobi.sdk.camera.StillImageView
         android:id="@+id/gr_camera_still_picture1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

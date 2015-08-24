@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.rokolabs.rokostickers.camera.StillImageView
+    <com.rokomobi.sdk.camera.StillImageView
         android:id="@+id/gr_camera_still_picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,8 +70,7 @@
         android:layout_alignParentBottom="true"
         android:background="#FFF" >
 
-        <com.rokolabs.rokostickers.widget.HorizontalListView
-            android:id="@+id/visual_gallery"
+        <com.rokolcom.rokomobi.sdk.widget.HorizontalListView     android:id="@+id/visual_gallery"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical" />
