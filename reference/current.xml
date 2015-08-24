@@ -1,5 +1,5 @@
 <api>
-<package name="com.rokolabs.rokostickers"
+<package name="com.rokomobi.sdk"
 >
 <class name="KeyValueStore"
  extends="android.database.sqlite.SQLiteOpenHelper"
@@ -10,7 +10,7 @@
  visibility="public"
 >
 <constructor name="KeyValueStore"
- type="com.rokolabs.rokostickers.KeyValueStore"
+ type="com.rokomobi.sdk.KeyValueStore"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -126,7 +126,7 @@
  visibility="public"
 >
 <constructor name="ROKOLogger"
- type="com.rokolabs.rokostickers.ROKOLogger"
+ type="com.rokomobi.sdk.ROKOLogger"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -143,7 +143,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="events" type="com.rokolabs.rokostickers.analytics.Event...">
+<parameter name="events" type="com.rokomobi.sdk.analytics.Event...">
 </parameter>
 </method>
 <method name="addEvent"
@@ -156,7 +156,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="events" type="java.util.Collection&lt;com.rokolabs.rokostickers.analytics.Event&gt;">
+<parameter name="events" type="java.util.Collection&lt;com.rokomobi.sdk.analytics.Event&gt;">
 </parameter>
 </method>
 <field name="MIN_EVENTS_COUNT"
@@ -180,7 +180,64 @@
 >
 </field>
 </class>
-<class name="RokoStickers"
+<class name="ROKOShare"
+ extends="com.rokomobi.sdk.share.ShareManager"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ROKOShare"
+ type="com.rokomobi.sdk.ROKOShare"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</constructor>
+<method name="getInstant"
+ return="com.rokomobi.sdk.ROKOShare"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+<method name="show"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="activity" type="android.app.Activity">
+</parameter>
+<parameter name="setting" type="com.rokomobi.sdk.data.ShareSettings">
+</parameter>
+</method>
+<field name="adapter"
+ type="com.rokomobi.sdk.ROKOShare.NChannelAdapter"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="RokoMobi"
  extends="android.content.ContextWrapper"
  abstract="false"
  static="false"
@@ -189,7 +246,7 @@
  visibility="public"
 >
 <method name="getInstance"
- return="com.rokolabs.rokostickers.RokoStickers"
+ return="com.rokomobi.sdk.RokoMobi"
  abstract="false"
  native="false"
  synchronized="false"
@@ -224,7 +281,7 @@
 <implements name="android.widget.AdapterView.OnItemClickListener">
 </implements>
 <constructor name="StickersActivity"
- type="com.rokolabs.rokostickers.StickersActivity"
+ type="com.rokomobi.sdk.StickersActivity"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -383,7 +440,7 @@
 </field>
 </class>
 </package>
-<package name="com.rokolabs.rokostickers.analytics"
+<package name="com.rokomobi.sdk.analytics"
 >
 <class name="Analytics"
  extends="java.lang.Object"
@@ -394,7 +451,7 @@
  visibility="public"
 >
 <constructor name="Analytics"
- type="com.rokolabs.rokostickers.analytics.Analytics"
+ type="com.rokomobi.sdk.analytics.Analytics"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -411,11 +468,11 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="analytics" type="com.rokolabs.rokostickers.analytics.Analytics">
+<parameter name="analytics" type="com.rokomobi.sdk.analytics.Analytics">
 </parameter>
 </method>
 <field name="applicationContext"
- type="com.rokolabs.rokostickers.analytics.ApplicationContext"
+ type="com.rokomobi.sdk.analytics.ApplicationContext"
  transient="false"
  volatile="false"
  static="false"
@@ -454,7 +511,7 @@
  visibility="public"
 >
 <constructor name="ApplicationContext"
- type="com.rokolabs.rokostickers.analytics.ApplicationContext"
+ type="com.rokomobi.sdk.analytics.ApplicationContext"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -462,7 +519,7 @@
 >
 </constructor>
 <method name="createApplicationContext"
- return="com.rokolabs.rokostickers.analytics.ApplicationContext"
+ return="com.rokomobi.sdk.analytics.ApplicationContext"
  abstract="false"
  native="false"
  synchronized="false"
@@ -544,7 +601,7 @@
  visibility="public"
 >
 <constructor name="Event"
- type="com.rokolabs.rokostickers.analytics.Event"
+ type="com.rokomobi.sdk.analytics.Event"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -554,7 +611,7 @@
 </parameter>
 </constructor>
 <constructor name="Event"
- type="com.rokolabs.rokostickers.analytics.Event"
+ type="com.rokomobi.sdk.analytics.Event"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -562,7 +619,7 @@
 >
 <parameter name="name" type="java.lang.String">
 </parameter>
-<parameter name="property" type="com.rokolabs.rokostickers.analytics.Property">
+<parameter name="property" type="com.rokomobi.sdk.analytics.Property">
 </parameter>
 </constructor>
 <field name="name"
@@ -576,7 +633,7 @@
 >
 </field>
 <field name="properties"
- type="com.rokolabs.rokostickers.analytics.Property"
+ type="com.rokomobi.sdk.analytics.Property"
  transient="false"
  volatile="false"
  static="false"
@@ -595,7 +652,7 @@
  visibility="public"
 >
 <constructor name="Property"
- type="com.rokolabs.rokostickers.analytics.Property"
+ type="com.rokomobi.sdk.analytics.Property"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -676,7 +733,7 @@
 </field>
 </class>
 </package>
-<package name="com.rokolabs.rokostickers.camera"
+<package name="com.rokomobi.sdk.camera"
 >
 <class name="ExifUtils"
  extends="java.lang.Object"
@@ -687,7 +744,7 @@
  visibility="public"
 >
 <constructor name="ExifUtils"
- type="com.rokolabs.rokostickers.camera.ExifUtils"
+ type="com.rokomobi.sdk.camera.ExifUtils"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -799,7 +856,7 @@
  visibility="public"
 >
 <constructor name="StillImageView"
- type="com.rokolabs.rokostickers.camera.StillImageView"
+ type="com.rokomobi.sdk.camera.StillImageView"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -809,7 +866,7 @@
 </parameter>
 </constructor>
 <constructor name="StillImageView"
- type="com.rokolabs.rokostickers.camera.StillImageView"
+ type="com.rokomobi.sdk.camera.StillImageView"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -821,7 +878,7 @@
 </parameter>
 </constructor>
 <constructor name="StillImageView"
- type="com.rokolabs.rokostickers.camera.StillImageView"
+ type="com.rokomobi.sdk.camera.StillImageView"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -844,7 +901,7 @@
  visibility="public"
 >
 <constructor name="TranslateUtil"
- type="com.rokolabs.rokostickers.camera.TranslateUtil"
+ type="com.rokomobi.sdk.camera.TranslateUtil"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -954,7 +1011,7 @@
  visibility="public"
 >
 <constructor name="VisualView"
- type="com.rokolabs.rokostickers.camera.VisualView"
+ type="com.rokomobi.sdk.camera.VisualView"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -977,7 +1034,7 @@
 >
 </method>
 <method name="getProperty"
- return="com.rokolabs.rokostickers.analytics.Property"
+ return="com.rokomobi.sdk.analytics.Property"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1055,7 +1112,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="property" type="com.rokolabs.rokostickers.analytics.Property">
+<parameter name="property" type="com.rokomobi.sdk.analytics.Property">
 </parameter>
 </method>
 <method name="setRelativeDeviceRotation"
@@ -1092,7 +1149,7 @@
 >
 </field>
 <field name="mProperty"
- type="com.rokolabs.rokostickers.analytics.Property"
+ type="com.rokomobi.sdk.analytics.Property"
  transient="false"
  volatile="false"
  static="false"
@@ -1173,15 +1230,15 @@
 <implements name="java.io.Serializable">
 </implements>
 <constructor name="WatermarkHelper"
- type="com.rokolabs.rokostickers.camera.WatermarkHelper"
+ type="com.rokomobi.sdk.camera.WatermarkHelper"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="imageURL" type="com.rokolabs.rokostickers.data.IconFile">
+<parameter name="imageURL" type="com.rokomobi.sdk.data.IconFile">
 </parameter>
-<parameter name="layout" type="com.rokolabs.rokostickers.camera.WatermarkHelper.Layout">
+<parameter name="layout" type="com.rokomobi.sdk.camera.WatermarkHelper.Layout">
 </parameter>
 <parameter name="ratio" type="double">
 </parameter>
@@ -1193,7 +1250,7 @@
 </parameter>
 </constructor>
 <method name="clone"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper"
+ return="com.rokomobi.sdk.camera.WatermarkHelper"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1248,7 +1305,7 @@
 </parameter>
 </method>
 <method name="getHDock"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.HDock"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.HDock"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1259,7 +1316,7 @@
 >
 </method>
 <method name="getHDock"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.HDock"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.HDock"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1272,7 +1329,7 @@
 </parameter>
 </method>
 <method name="getImageURL"
- return="com.rokolabs.rokostickers.data.IconFile"
+ return="com.rokomobi.sdk.data.IconFile"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1283,7 +1340,7 @@
 >
 </method>
 <method name="getLayout"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.Layout"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.Layout"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1305,7 +1362,7 @@
 >
 </method>
 <method name="getVDock"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.VDock"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.VDock"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1316,7 +1373,7 @@
 >
 </method>
 <method name="getVDock"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.VDock"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.VDock"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1353,7 +1410,7 @@
  visibility="public"
 >
 <method name="valueOf"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.HDock"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.HDock"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1366,7 +1423,7 @@
 </parameter>
 </method>
 <method name="values"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.HDock[]"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.HDock[]"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1386,7 +1443,7 @@
  visibility="public"
 >
 <method name="valueOf"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.Layout"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.Layout"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1399,7 +1456,7 @@
 </parameter>
 </method>
 <method name="values"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.Layout[]"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.Layout[]"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1419,7 +1476,7 @@
  visibility="public"
 >
 <method name="valueOf"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.VDock"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.VDock"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1432,7 +1489,7 @@
 </parameter>
 </method>
 <method name="values"
- return="com.rokolabs.rokostickers.camera.WatermarkHelper.VDock[]"
+ return="com.rokomobi.sdk.camera.WatermarkHelper.VDock[]"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1452,7 +1509,7 @@
  visibility="public"
 >
 <constructor name="WatermarkView"
- type="com.rokolabs.rokostickers.camera.WatermarkView"
+ type="com.rokomobi.sdk.camera.WatermarkView"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1462,7 +1519,7 @@
 </parameter>
 </constructor>
 <constructor name="WatermarkView"
- type="com.rokolabs.rokostickers.camera.WatermarkView"
+ type="com.rokomobi.sdk.camera.WatermarkView"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1474,7 +1531,7 @@
 </parameter>
 </constructor>
 <constructor name="WatermarkView"
- type="com.rokolabs.rokostickers.camera.WatermarkView"
+ type="com.rokomobi.sdk.camera.WatermarkView"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1501,7 +1558,7 @@
 </parameter>
 </method>
 <field name="mWatermark"
- type="com.rokolabs.rokostickers.camera.WatermarkHelper"
+ type="com.rokomobi.sdk.camera.WatermarkHelper"
  transient="false"
  volatile="false"
  static="false"
@@ -1512,7 +1569,7 @@
 </field>
 </class>
 </package>
-<package name="com.rokolabs.rokostickers.data"
+<package name="com.rokomobi.sdk.data"
 >
 <class name="ApplicationDefaultWatermark"
  extends="java.lang.Object"
@@ -1523,7 +1580,7 @@
  visibility="public"
 >
 <constructor name="ApplicationDefaultWatermark"
- type="com.rokolabs.rokostickers.data.ApplicationDefaultWatermark"
+ type="com.rokomobi.sdk.data.ApplicationDefaultWatermark"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1541,7 +1598,7 @@
 >
 </field>
 <field name="imageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -1590,7 +1647,7 @@
  visibility="public"
 >
 <constructor name="Channel"
- type="com.rokolabs.rokostickers.data.Channel"
+ type="com.rokomobi.sdk.data.Channel"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1647,8 +1704,18 @@
  visibility="public"
 >
 </field>
+<field name="imageDrawable"
+ type="android.graphics.drawable.Drawable"
+ transient="true"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="imageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -1687,7 +1754,7 @@
  visibility="public"
 >
 <constructor name="IconFile"
- type="com.rokolabs.rokostickers.data.IconFile"
+ type="com.rokomobi.sdk.data.IconFile"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1724,7 +1791,7 @@
  visibility="public"
 >
 <constructor name="ImageFile"
- type="com.rokolabs.rokostickers.data.ImageFile"
+ type="com.rokomobi.sdk.data.ImageFile"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1732,7 +1799,7 @@
 >
 </constructor>
 <field name="file"
- type="com.rokolabs.rokostickers.data.IconFile"
+ type="com.rokomobi.sdk.data.IconFile"
  transient="false"
  volatile="false"
  static="false"
@@ -1751,7 +1818,7 @@
  visibility="public"
 >
 <constructor name="ImageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1788,13 +1855,23 @@
  visibility="public"
 >
 <constructor name="Navigation"
- type="com.rokolabs.rokostickers.data.Navigation"
+ type="com.rokomobi.sdk.data.Navigation"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
 </constructor>
+<field name="closeButtonDrawable"
+ type="android.graphics.drawable.Drawable"
+ transient="true"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="closeButtonEnabled"
  type="boolean"
  transient="false"
@@ -1806,7 +1883,7 @@
 >
 </field>
 <field name="closeButtonImageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -1826,7 +1903,7 @@
 >
 </field>
 <field name="closeButtonTextFont"
- type="com.rokolabs.rokostickers.data.TextFont"
+ type="com.rokomobi.sdk.data.TextFont"
  transient="false"
  volatile="false"
  static="false"
@@ -1856,7 +1933,7 @@
 >
 </field>
 <field name="doneButtonTextFont"
- type="com.rokolabs.rokostickers.data.TextFont"
+ type="com.rokomobi.sdk.data.TextFont"
  transient="false"
  volatile="false"
  static="false"
@@ -1895,7 +1972,7 @@
  visibility="public"
 >
 <constructor name="NavigationBar"
- type="com.rokolabs.rokostickers.data.NavigationBar"
+ type="com.rokomobi.sdk.data.NavigationBar"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -1913,7 +1990,7 @@
 >
 </field>
 <field name="buttonFont"
- type="com.rokolabs.rokostickers.data.TextFont"
+ type="com.rokomobi.sdk.data.TextFont"
  transient="false"
  volatile="false"
  static="false"
@@ -1923,7 +2000,7 @@
 >
 </field>
 <field name="leftButtonImageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -1943,7 +2020,7 @@
 >
 </field>
 <field name="rightButtonImageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -1973,7 +2050,7 @@
 >
 </field>
 <field name="titleFont"
- type="com.rokolabs.rokostickers.data.TextFont"
+ type="com.rokomobi.sdk.data.TextFont"
  transient="false"
  volatile="false"
  static="false"
@@ -2002,7 +2079,7 @@
  visibility="public"
 >
 <constructor name="PackIconFileGroup"
- type="com.rokolabs.rokostickers.data.PackIconFileGroup"
+ type="com.rokomobi.sdk.data.PackIconFileGroup"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2039,14 +2116,14 @@
  visibility="public"
 >
 <constructor name="Preview"
- type="com.rokolabs.rokostickers.data.Preview"
+ type="com.rokomobi.sdk.data.Preview"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
 </constructor>
-<field name="imageUri"
+<field name="fileUri"
  type="android.net.Uri"
  transient="false"
  volatile="false"
@@ -2056,8 +2133,8 @@
  visibility="public"
 >
 </field>
-<field name="previewUrl"
- type="java.lang.String"
+<field name="previewUri"
+ type="android.net.Uri"
  transient="false"
  volatile="false"
  static="false"
@@ -2077,7 +2154,7 @@
 >
 </field>
 <field name="promptTextFont"
- type="com.rokolabs.rokostickers.data.TextFont"
+ type="com.rokomobi.sdk.data.TextFont"
  transient="false"
  volatile="false"
  static="false"
@@ -2087,7 +2164,7 @@
 >
 </field>
 <field name="staticImageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -2107,7 +2184,7 @@
 >
 </field>
 <field name="staticTextFont"
- type="com.rokolabs.rokostickers.data.TextFont"
+ type="com.rokomobi.sdk.data.TextFont"
  transient="false"
  volatile="false"
  static="false"
@@ -2136,13 +2213,83 @@
  visibility="public"
 >
 <constructor name="ShareSettings"
- type="com.rokolabs.rokostickers.data.ShareSettings"
+ type="com.rokomobi.sdk.data.ShareSettings"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
 </constructor>
+<method name="getChannel"
+ return="com.rokomobi.sdk.data.Channel"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="channelType" type="java.lang.String">
+</parameter>
+</method>
+<method name="setMessageBody"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="msg" type="java.lang.String">
+</parameter>
+</method>
+<field name="CHANNEL_EMAIL"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;email&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="CHANNEL_FACEBOOK"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;facebook&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="CHANNEL_SMS"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;sms&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="CHANNEL_TWITTER"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;twitter&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="backgroundColor"
  type="java.lang.String"
  transient="false"
@@ -2174,7 +2321,7 @@
 >
 </field>
 <field name="navigation"
- type="com.rokolabs.rokostickers.data.Navigation"
+ type="com.rokomobi.sdk.data.Navigation"
  transient="false"
  volatile="false"
  static="false"
@@ -2184,7 +2331,7 @@
 >
 </field>
 <field name="preview"
- type="com.rokolabs.rokostickers.data.Preview"
+ type="com.rokomobi.sdk.data.Preview"
  transient="false"
  volatile="false"
  static="false"
@@ -2193,7 +2340,7 @@
  visibility="public"
 >
 </field>
-<field name="updateData"
+<field name="updateDate"
  type="java.lang.String"
  transient="false"
  volatile="false"
@@ -2213,7 +2360,7 @@
  visibility="public"
 >
 <constructor name="SharedListItem"
- type="com.rokolabs.rokostickers.data.SharedListItem"
+ type="com.rokomobi.sdk.data.SharedListItem"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2221,7 +2368,7 @@
 >
 </constructor>
 <method name="getShareSettings"
- return="com.rokolabs.rokostickers.data.SharedListItem"
+ return="com.rokomobi.sdk.data.SharedListItem"
  abstract="false"
  native="false"
  synchronized="false"
@@ -2244,7 +2391,7 @@
 >
 </field>
 <field name="data"
- type="com.rokolabs.rokostickers.data.ShareSettings"
+ type="com.rokomobi.sdk.data.ShareSettings"
  transient="false"
  volatile="false"
  static="false"
@@ -2263,7 +2410,7 @@
  visibility="public"
 >
 <constructor name="Sticker"
- type="com.rokolabs.rokostickers.data.Sticker"
+ type="com.rokomobi.sdk.data.Sticker"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2281,7 +2428,7 @@
 >
 </field>
 <field name="imageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -2330,7 +2477,7 @@
  visibility="public"
 >
 <constructor name="StickersList"
- type="com.rokolabs.rokostickers.data.StickersList"
+ type="com.rokomobi.sdk.data.StickersList"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2388,7 +2535,7 @@
 >
 </field>
 <field name="packIconFileGroup"
- type="com.rokolabs.rokostickers.data.PackIconFileGroup"
+ type="com.rokomobi.sdk.data.PackIconFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -2408,7 +2555,7 @@
 >
 </field>
 <field name="unselectedPackIconFileGroup"
- type="com.rokolabs.rokostickers.data.PackIconFileGroup"
+ type="com.rokomobi.sdk.data.PackIconFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -2448,7 +2595,7 @@
 >
 </field>
 <field name="watermark"
- type="com.rokolabs.rokostickers.data.Watermark"
+ type="com.rokomobi.sdk.data.Watermark"
  transient="false"
  volatile="false"
  static="false"
@@ -2487,7 +2634,7 @@
  visibility="public"
 >
 <constructor name="StickersListItem"
- type="com.rokolabs.rokostickers.data.StickersListItem"
+ type="com.rokomobi.sdk.data.StickersListItem"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2495,7 +2642,7 @@
 >
 </constructor>
 <method name="getStickersListItem"
- return="com.rokolabs.rokostickers.data.StickersListItem"
+ return="com.rokomobi.sdk.data.StickersListItem"
  abstract="false"
  native="false"
  synchronized="false"
@@ -2547,7 +2694,7 @@
  visibility="public"
 >
 <constructor name="StickersSettings"
- type="com.rokolabs.rokostickers.data.StickersSettings"
+ type="com.rokomobi.sdk.data.StickersSettings"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2575,7 +2722,7 @@
 >
 </field>
 <field name="applicationDefaultWatermark"
- type="com.rokolabs.rokostickers.data.ApplicationDefaultWatermark"
+ type="com.rokomobi.sdk.data.ApplicationDefaultWatermark"
  transient="false"
  volatile="false"
  static="false"
@@ -2605,7 +2752,7 @@
 >
 </field>
 <field name="navigationBar"
- type="com.rokolabs.rokostickers.data.NavigationBar"
+ type="com.rokomobi.sdk.data.NavigationBar"
  transient="false"
  volatile="false"
  static="false"
@@ -2615,7 +2762,7 @@
 >
 </field>
 <field name="tray"
- type="com.rokolabs.rokostickers.data.Tray"
+ type="com.rokomobi.sdk.data.Tray"
  transient="false"
  volatile="false"
  static="false"
@@ -2654,7 +2801,7 @@
  visibility="public"
 >
 <constructor name="StickersSettingsItem"
- type="com.rokolabs.rokostickers.data.StickersSettingsItem"
+ type="com.rokomobi.sdk.data.StickersSettingsItem"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2662,7 +2809,7 @@
 >
 </constructor>
 <method name="getStickersSettings"
- return="com.rokolabs.rokostickers.data.StickersSettingsItem"
+ return="com.rokomobi.sdk.data.StickersSettingsItem"
  abstract="false"
  native="false"
  synchronized="false"
@@ -2685,7 +2832,7 @@
 >
 </field>
 <field name="data"
- type="com.rokolabs.rokostickers.data.StickersSettings"
+ type="com.rokomobi.sdk.data.StickersSettings"
  transient="false"
  volatile="false"
  static="false"
@@ -2704,7 +2851,7 @@
  visibility="public"
 >
 <constructor name="TextFont"
- type="com.rokolabs.rokostickers.data.TextFont"
+ type="com.rokomobi.sdk.data.TextFont"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2741,7 +2888,7 @@
  visibility="public"
 >
 <constructor name="Tray"
- type="com.rokolabs.rokostickers.data.Tray"
+ type="com.rokomobi.sdk.data.Tray"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2759,7 +2906,7 @@
 >
 </field>
 <field name="closeButtonImageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -2779,7 +2926,7 @@
 >
 </field>
 <field name="font"
- type="com.rokolabs.rokostickers.data.TextFont"
+ type="com.rokomobi.sdk.data.TextFont"
  transient="false"
  volatile="false"
  static="false"
@@ -2789,7 +2936,7 @@
 >
 </field>
 <field name="openButtonImageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -2810,7 +2957,7 @@
 <implements name="java.io.Serializable">
 </implements>
 <constructor name="Visual"
- type="com.rokolabs.rokostickers.data.Visual"
+ type="com.rokomobi.sdk.data.Visual"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -2826,7 +2973,7 @@
 </parameter>
 <parameter name="caption" type="java.lang.String">
 </parameter>
-<parameter name="imageFile" type="com.rokolabs.rokostickers.data.ImageFile">
+<parameter name="imageFile" type="com.rokomobi.sdk.data.ImageFile">
 </parameter>
 <parameter name="productURL" type="java.lang.String">
 </parameter>
@@ -2908,7 +3055,7 @@
 >
 </method>
 <method name="getImageFile"
- return="com.rokolabs.rokostickers.data.ImageFile"
+ return="com.rokomobi.sdk.data.ImageFile"
  abstract="false"
  native="false"
  synchronized="false"
@@ -2982,7 +3129,7 @@
  visibility="public"
 >
 <constructor name="Watermark"
- type="com.rokolabs.rokostickers.data.Watermark"
+ type="com.rokomobi.sdk.data.Watermark"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3000,7 +3147,7 @@
 >
 </field>
 <field name="imageFileGroup"
- type="com.rokolabs.rokostickers.data.ImageFileGroup"
+ type="com.rokomobi.sdk.data.ImageFileGroup"
  transient="false"
  volatile="false"
  static="false"
@@ -3041,7 +3188,7 @@
 </field>
 </class>
 </package>
-<package name="com.rokolabs.rokostickers.data.local"
+<package name="com.rokomobi.sdk.data.local"
 >
 <class name="StickerPackInfo"
  extends="java.lang.Object"
@@ -3054,7 +3201,7 @@
 <implements name="java.io.Serializable">
 </implements>
 <constructor name="StickerPackInfo"
- type="com.rokolabs.rokostickers.data.local.StickerPackInfo"
+ type="com.rokomobi.sdk.data.local.StickerPackInfo"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3103,18 +3250,18 @@
 </field>
 </class>
 </package>
-<package name="com.rokolabs.rokostickers.share"
+<package name="com.rokomobi.sdk.share"
 >
-<class name="ShareManagerEx"
- extends="com.rokolabs.share.ShareManager"
+<class name="ShareManager"
+ extends="java.lang.Object"
  abstract="false"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<constructor name="ShareManagerEx"
- type="com.rokolabs.rokostickers.share.ShareManagerEx"
+<constructor name="ShareManager"
+ type="com.rokomobi.sdk.share.ShareManager"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3123,8 +3270,38 @@
 <parameter name="context" type="android.content.Context">
 </parameter>
 </constructor>
+<method name="getDrawableFromUri"
+ return="android.graphics.drawable.Drawable"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="android.net.Uri">
+</parameter>
+<parameter name="targetView" type="android.view.View">
+</parameter>
+</method>
+<method name="getDrawableFromUrl"
+ return="android.graphics.drawable.Drawable"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="targetView" type="android.view.View">
+</parameter>
+</method>
 <method name="getInstant"
- return="com.rokolabs.rokostickers.share.ShareManagerEx"
+ return="com.rokomobi.sdk.share.ShareManager"
  abstract="false"
  native="false"
  synchronized="false"
@@ -3136,8 +3313,8 @@
 <parameter name="context" type="android.content.Context">
 </parameter>
 </method>
-<method name="show"
- return="void"
+<method name="getShareSettings"
+ return="com.rokomobi.sdk.data.ShareSettings"
  abstract="false"
  native="false"
  synchronized="false"
@@ -3146,13 +3323,22 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="activity" type="android.app.Activity">
-</parameter>
-<parameter name="setting" type="com.rokolabs.rokostickers.data.ShareSettings">
+</method>
+<method name="init"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="ctx" type="android.content.Context">
 </parameter>
 </method>
-<field name="adapter"
- type="com.rokolabs.rokostickers.share.ShareManagerEx.NChannelAdapter"
+<field name="mBackground"
+ type="android.widget.LinearLayout"
  transient="false"
  volatile="false"
  static="false"
@@ -3161,81 +3347,98 @@
  visibility="public"
 >
 </field>
-</class>
-<class name="ShareManagerEx.NChannelAdapter"
- extends="android.widget.BaseAdapter"
- abstract="false"
+<field name="mCancel"
+ type="android.widget.Button"
+ transient="false"
+ volatile="false"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<constructor name="NChannelAdapter"
- type="com.rokolabs.rokostickers.share.ShareManagerEx.NChannelAdapter"
+</field>
+<field name="mChannelGridView"
+ type="android.widget.GridView"
+ transient="false"
+ volatile="false"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="android.content.Context">
-</parameter>
-</constructor>
-<method name="getCount"
- return="int"
- abstract="false"
- native="false"
- synchronized="false"
+</field>
+<field name="mClose"
+ type="android.widget.ImageButton"
+ transient="false"
+ volatile="false"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-</method>
-<method name="getItem"
- return="java.lang.Object"
- abstract="false"
- native="false"
- synchronized="false"
+</field>
+<field name="mCloseTxt"
+ type="android.widget.TextView"
+ transient="false"
+ volatile="false"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="position" type="int">
-</parameter>
-</method>
-<method name="getItemId"
- return="long"
- abstract="false"
- native="false"
- synchronized="false"
+</field>
+<field name="mContext"
+ type="android.content.Context"
+ transient="false"
+ volatile="false"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="position" type="int">
-</parameter>
-</method>
-<method name="getView"
- return="android.view.View"
- abstract="false"
- native="false"
- synchronized="false"
+</field>
+<field name="mDialog"
+ type="android.app.Dialog"
+ transient="false"
+ volatile="false"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="position" type="int">
-</parameter>
-<parameter name="convertView" type="android.view.View">
-</parameter>
-<parameter name="parent" type="android.view.ViewGroup">
-</parameter>
-</method>
-<field name="mList"
- type="java.util.List"
+</field>
+<field name="mDoneLayout"
+ type="android.widget.LinearLayout"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="mMessageViewText"
+ type="android.widget.TextView"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="mMessageViewthumbnail"
+ type="android.widget.ImageView"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="mPrompt"
+ type="android.widget.TextView"
  transient="false"
  volatile="false"
  static="false"
@@ -3246,7 +3449,1239 @@
 </field>
 </class>
 </package>
-<package name="com.rokolabs.rokostickers.widget"
+<package name="com.rokomobi.sdk.share.net"
+>
+<class name="HttpHelper"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="HttpHelper"
+ type="com.rokomobi.sdk.share.net.HttpHelper"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="clearChartQueue"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="clearConferenceQueue"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="clearQueue"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getConferenceDataAsyncFull"
+ return="java.util.concurrent.Future&lt;?&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="task" type="com.rokomobi.sdk.share.net.HttpTask">
+</parameter>
+</method>
+<method name="getNewHttpClient"
+ return="org.apache.http.client.HttpClient"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getUrlDataAsyncFull"
+ return="java.util.concurrent.Future"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="task" type="com.rokomobi.sdk.share.net.HttpTask">
+</parameter>
+</method>
+<method name="getUrlDataAsyncFull"
+ return="java.util.concurrent.Future"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="java.lang.String">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="task" type="com.rokomobi.sdk.share.net.HttpTask">
+</parameter>
+</method>
+<method name="getUrlDataAsyncFull"
+ return="java.util.concurrent.Future"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="java.lang.String">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="postContent" type="java.lang.String">
+</parameter>
+<parameter name="task" type="com.rokomobi.sdk.share.net.HttpTask">
+</parameter>
+</method>
+<method name="getUrlDataAsyncFull"
+ return="java.util.concurrent.Future"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="java.lang.String">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="postContent" type="java.lang.String">
+</parameter>
+<parameter name="headers" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<parameter name="task" type="com.rokomobi.sdk.share.net.HttpTask">
+</parameter>
+</method>
+<method name="getUrlDataFull"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="urlStr" type="java.lang.String">
+</parameter>
+<exception name="ClientProtocolException" type="org.apache.http.client.ClientProtocolException">
+</exception>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+<exception name="URISyntaxException" type="java.net.URISyntaxException">
+</exception>
+</method>
+<method name="getUrlDataFull"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="java.lang.String">
+</parameter>
+<parameter name="urlStr" type="java.lang.String">
+</parameter>
+<exception name="ClientProtocolException" type="org.apache.http.client.ClientProtocolException">
+</exception>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+<exception name="URISyntaxException" type="java.net.URISyntaxException">
+</exception>
+</method>
+<method name="getUrlDataFull"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="httpMethod" type="java.lang.String">
+</parameter>
+<parameter name="urlStr" type="java.lang.String">
+</parameter>
+<parameter name="postContent" type="java.lang.String">
+</parameter>
+<parameter name="headers" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<exception name="ClientProtocolException" type="org.apache.http.client.ClientProtocolException">
+</exception>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+<exception name="URISyntaxException" type="java.net.URISyntaxException">
+</exception>
+</method>
+<method name="queueChartDataFull"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="task" type="com.rokomobi.sdk.share.net.HttpTask">
+</parameter>
+</method>
+<method name="queueUrlDataFull"
+ return="java.util.concurrent.Future"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="task" type="com.rokomobi.sdk.share.net.HttpTask">
+</parameter>
+</method>
+<field name="METHOD_DELETE"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;DELETE&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="METHOD_GET"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;GET&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="METHOD_POST"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;POST&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="SPEED_TEST_MIN_SIZE"
+ type="long"
+ transient="false"
+ volatile="false"
+ value="10240L"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="HttpResponseException"
+ extends="java.io.IOException"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="HttpResponseException"
+ type="com.rokomobi.sdk.share.net.HttpResponseException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="statusCode" type="int">
+</parameter>
+<parameter name="statusLine" type="java.lang.String">
+</parameter>
+</constructor>
+<method name="getStatusCode"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getStatusLine"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="HttpTask"
+ extends="java.lang.Object"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="java.lang.Runnable">
+</implements>
+<constructor name="HttpTask"
+ type="com.rokomobi.sdk.share.net.HttpTask"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="HttpTask"
+ type="com.rokomobi.sdk.share.net.HttpTask"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</constructor>
+<method name="doInBackGround"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getData"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getStatus"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getStatusLine"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isCacheData"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onError"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="setCacheData"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="isCacheData" type="boolean">
+</parameter>
+</method>
+<method name="setData"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="data" type="byte[]">
+</parameter>
+</method>
+<method name="setStatus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="status" type="int">
+</parameter>
+</method>
+<method name="setStatusLine"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="statusLine" type="java.lang.String">
+</parameter>
+</method>
+</class>
+</package>
+<package name="com.rokomobi.sdk.share.utils"
+>
+<class name="CQURL"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="CQURL"
+ type="com.rokomobi.sdk.share.utils.CQURL"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="raw" type="java.lang.String">
+</parameter>
+</constructor>
+<method name="getServerRoot"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getServerWithPath"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isValid"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="resolveRelativePath"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="path" type="java.lang.String">
+</parameter>
+</method>
+<field name="file"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="host"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="path"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="protocol"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="Constants"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Constants"
+ type="com.rokomobi.sdk.share.utils.Constants"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="d"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="str" type="java.lang.String">
+</parameter>
+</method>
+<method name="e"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="msg" type="java.lang.String">
+</parameter>
+<parameter name="t" type="java.lang.Throwable">
+</parameter>
+</method>
+<method name="i"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="str" type="java.lang.String">
+</parameter>
+</method>
+<field name="DEBUG"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="DEV_TYPE"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="5"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="TAG"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;ROKOLABS&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="devicetype"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;android&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="IntentUtil"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="IntentUtil"
+ type="com.rokomobi.sdk.share.utils.IntentUtil"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getIntentList"
+ return="java.util.List&lt;android.content.Intent&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="baseIntent" type="android.content.Intent">
+</parameter>
+</method>
+<method name="hasInstagram"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+<method name="hasPackage"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="shareApp"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+<method name="shareVia"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="matcher" type="com.rokomobi.sdk.share.utils.IntentUtil.AppMatcher">
+</parameter>
+<parameter name="mime" type="java.lang.String">
+</parameter>
+<parameter name="title" type="java.lang.String">
+</parameter>
+<parameter name="baseIntent" type="android.content.Intent">
+</parameter>
+<parameter name="fallbackToRawIntent" type="boolean">
+</parameter>
+</method>
+<method name="shareVia"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="matcher" type="com.rokomobi.sdk.share.utils.IntentUtil.AppMatcher">
+</parameter>
+<parameter name="sortComparator" type="java.util.Comparator&lt;android.content.Intent&gt;">
+</parameter>
+<parameter name="mime" type="java.lang.String">
+</parameter>
+<parameter name="title" type="java.lang.String">
+</parameter>
+<parameter name="baseIntent" type="android.content.Intent">
+</parameter>
+<parameter name="fallbackToRawIntent" type="boolean">
+</parameter>
+</method>
+<method name="shareViaEmail"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="title" type="java.lang.String">
+</parameter>
+<parameter name="baseIntent" type="android.content.Intent">
+</parameter>
+</method>
+<method name="shareViaFaceBook"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="shareBody" type="java.lang.String">
+</parameter>
+<parameter name="baseIntent" type="android.content.Intent">
+</parameter>
+<parameter name="mime" type="java.lang.String">
+</parameter>
+</method>
+<method name="shareViaInstagram"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="title" type="java.lang.String">
+</parameter>
+<parameter name="baseIntent" type="android.content.Intent">
+</parameter>
+</method>
+<method name="shareViaSms"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="title" type="java.lang.String">
+</parameter>
+<parameter name="baseIntent" type="android.content.Intent">
+</parameter>
+</method>
+<method name="shareViaTwitter"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="shareBody" type="java.lang.String">
+</parameter>
+<parameter name="baseIntent" type="android.content.Intent">
+</parameter>
+</method>
+<field name="APP_SHARE_ORDER"
+ type="java.util.List"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<interface name="IntentUtil.AppMatcher"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="match"
+ return="boolean"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="appInfo" type="android.content.pm.ActivityInfo">
+</parameter>
+</method>
+</interface>
+<class name="RequestBuilder"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="RequestBuilder"
+ type="com.rokomobi.sdk.share.utils.RequestBuilder"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="appendParam"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+<parameter name="value" type="java.lang.String">
+</parameter>
+</method>
+<method name="appendParam"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+<parameter name="v" type="double">
+</parameter>
+</method>
+<method name="appendParam"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+<parameter name="v" type="long">
+</parameter>
+</method>
+<method name="appendParam"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+<parameter name="v" type="int">
+</parameter>
+</method>
+<method name="appendPath"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="str" type="java.lang.String">
+</parameter>
+</method>
+<method name="removeParam"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+</class>
+<class name="Util"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Util"
+ type="com.rokomobi.sdk.share.utils.Util"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="IS2ByteArray"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="inputStream" type="java.io.InputStream">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<method name="computeSampleSize"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="options" type="android.graphics.BitmapFactory.Options">
+</parameter>
+<parameter name="minSideLength" type="int">
+</parameter>
+<parameter name="maxNumOfPixels" type="int">
+</parameter>
+</method>
+<method name="createImageThumb"
+ return="android.graphics.Bitmap"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="uri" type="android.net.Uri">
+</parameter>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<exception name="FileNotFoundException" type="java.io.FileNotFoundException">
+</exception>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<method name="createImageThumb"
+ return="android.graphics.Bitmap"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="uri" type="android.net.Uri">
+</parameter>
+<parameter name="maxWidth" type="int">
+</parameter>
+<parameter name="maxHeight" type="int">
+</parameter>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+<method name="createImageThumb"
+ return="android.graphics.Bitmap"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="filePath" type="java.lang.String">
+</parameter>
+</method>
+<method name="createImageThumb"
+ return="android.graphics.Bitmap"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="data" type="byte[]">
+</parameter>
+</method>
+<field name="CHANNEL_EMAIL"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="1"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="CHANNEL_FACEBOOK"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="3"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="CHANNEL_SMS"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="4"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="CHANNEL_TWITTER"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="2"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="EXITOPTION_CANCEL"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="1"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="EXITOPTION_CLOSE"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="2"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="MAX_MINUTES_IN_DAY"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="1439"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="MIN_MINUTES_IN_DAY"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="0"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+</package>
+<package name="com.rokomobi.sdk.widget"
 >
 <class name="HorizontalListView"
  extends="android.widget.AdapterView"
@@ -3257,7 +4692,7 @@
  visibility="public"
 >
 <constructor name="HorizontalListView"
- type="com.rokolabs.rokostickers.widget.HorizontalListView"
+ type="com.rokomobi.sdk.widget.HorizontalListView"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3341,7 +4776,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="l" type="com.rokolabs.rokostickers.widget.HorizontalListView.OnXScrollChangeListener">
+<parameter name="l" type="com.rokomobi.sdk.widget.HorizontalListView.OnXScrollChangeListener">
 </parameter>
 </method>
 <method name="setSelection"
@@ -3398,7 +4833,7 @@
  visibility="public"
 >
 <constructor name="LocalPackAdapter"
- type="com.rokolabs.rokostickers.widget.LocalPackAdapter"
+ type="com.rokomobi.sdk.widget.LocalPackAdapter"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3494,7 +4929,7 @@
  visibility="public"
 >
 <constructor name="LocalStickerAdapter"
- type="com.rokolabs.rokostickers.widget.LocalStickerAdapter"
+ type="com.rokomobi.sdk.widget.LocalStickerAdapter"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3569,7 +5004,7 @@
  visibility="public"
 >
 <constructor name="PortalPackAdapter"
- type="com.rokolabs.rokostickers.widget.PortalPackAdapter"
+ type="com.rokomobi.sdk.widget.PortalPackAdapter"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3667,7 +5102,7 @@
  visibility="public"
 >
 <constructor name="PortalStickerAdapter"
- type="com.rokolabs.rokostickers.widget.PortalStickerAdapter"
+ type="com.rokomobi.sdk.widget.PortalStickerAdapter"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3675,7 +5110,7 @@
 >
 <parameter name="context" type="android.content.Context">
 </parameter>
-<parameter name="list" type="java.util.List&lt;com.rokolabs.rokostickers.data.Sticker&gt;">
+<parameter name="list" type="java.util.List&lt;com.rokomobi.sdk.data.Sticker&gt;">
 </parameter>
 <parameter name="fetcher" type="com.rokolabs.common.image.ImageFetcher">
 </parameter>
@@ -3746,7 +5181,7 @@
 <implements name="android.view.animation.Animation.AnimationListener">
 </implements>
 <constructor name="SimpleAnimationListener"
- type="com.rokolabs.rokostickers.widget.SimpleAnimationListener"
+ type="com.rokomobi.sdk.widget.SimpleAnimationListener"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3802,7 +5237,7 @@
  visibility="public"
 >
 <constructor name="StickerViewHolder"
- type="com.rokolabs.rokostickers.widget.StickerViewHolder"
+ type="com.rokomobi.sdk.widget.StickerViewHolder"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -3829,7 +5264,7 @@
  visibility="public"
 >
 <constructor name="ViewPagerAdapter"
- type="com.rokolabs.rokostickers.widget.ViewPagerAdapter"
+ type="com.rokomobi.sdk.widget.ViewPagerAdapter"
  static="false"
  final="false"
  deprecated="not deprecated"
