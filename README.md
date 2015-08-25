@@ -36,14 +36,12 @@ There are two ways to build your Android project: Eclipse  or Android Studio.
 ```
 
 
----
 
 2) Add this android Library as dependency to your application project: 
 
 ```
 RokoMobi
 ```
----
 3) Add required permissions and the sticker activity to your AndroidManifest.xml
 ```
     <uses-permission android:name="android.permission.INTERNET" />
@@ -64,7 +62,7 @@ RokoMobi
         </activity>
 
 ```
----
+
 4) Init RokoMobi in your application or activity's onCreate
 ```
 RokoMobi.start(this);
@@ -277,14 +275,12 @@ There are two ways to build your Android project: Eclipse  or Android Studio.
 ```
 [File]->Import->General->Existing Projects into Workspace->Browse->Select [RokoMobi]
 ```
----
 
 ####2) Add this android Library as dependency to your application project: 
 
 ```
 RokoMobi
 ```
----
 ####3) Add required permissions to your AndroidManifest.xml
 ```
     <uses-permission android:name="android.permission.INTERNET" />
@@ -295,7 +291,6 @@ RokoMobi
 
 
 ```
----
 ####4) Init RokoMobi in your application or activity's onCreate
 ```
 RokoMobi.start(this);
