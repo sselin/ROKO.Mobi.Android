@@ -298,7 +298,10 @@ RokoMobi.start(this);
 
 ####5) Generate the API Token by registering your project on ROKO Mobi Portal. Add «ROKOMobiAPIURL», «ROKOMobiAPIToken» meta-data on your AndroidManifest.xml.
 
-![](Images/APITokens.png)
+|Key|Value|
+---|---
+|ROKOMobiAPIURL|rmsws.stage.rokolabs.com/external/v1|
+|ROKOMobiAPIToken|<a href="https://portal.roko.mobi/settings" target="_blank">%YOUR_API_FROM_SERVER%</a>|
 
 
 ###Sharing Content with ROKOShare
