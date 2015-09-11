@@ -36,6 +36,7 @@
             android:id="@+id/hide_stcikers_choose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:onClick="onClick"
             android:src="@drawable/close_arrow" />
 
@@ -66,14 +67,15 @@
     <FrameLayout
         android:id="@+id/gallery_layout"
         android:layout_width="fill_parent"
-        android:layout_height="56dp"
+        android:layout_height="58dp"
         android:layout_alignParentBottom="true"
-        android:background="#FFF" >
+        >
 
         <com.rokomobi.sdk.widget.HorizontalListView     
             android:id="@+id/visual_gallery"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#FFF" 
             android:layout_gravity="center_vertical" />
     </FrameLayout>
 

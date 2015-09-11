@@ -10,8 +10,9 @@
 
     <ImageView
         android:id="@+id/visual_image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:scaleType="centerInside" />
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="9dp"
+        android:scaleType="fitCenter" />
 
 </FrameLayout>
