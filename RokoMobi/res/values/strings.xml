@@ -15,4 +15,5 @@
     <string name="messageView"></string>
     <string name="drag_here_to_remove">Drag here to remove</string>
     
+    <string name="sticker_dialog_title">Sticker Picker</string>
 </resources>

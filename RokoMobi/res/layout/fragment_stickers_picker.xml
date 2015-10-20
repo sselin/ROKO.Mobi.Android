@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/stickers_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/stcikers_choose"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/face_layout_height"
+            android:background="#C0FFFFFF" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_contains"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </android.support.v4.view.ViewPager>
+
+            <LinearLayout
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="6dip"
+                android:gravity="center"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.rokomobi.sdk.widget.HorizontalListView
+        android:id="@+id/visual_gallery"
+        android:layout_width="fill_parent"
+        android:layout_height="58dp"
+        android:layout_gravity="center_vertical"
+        android:background="#FFF" />
+
+</LinearLayout>

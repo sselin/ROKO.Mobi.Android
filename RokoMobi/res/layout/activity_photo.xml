@@ -37,6 +37,18 @@
             android:layout_marginTop="25dp"
             android:onClick="onClick"
             android:src="@drawable/choose_photo" />
+
+        <Button
+            android:id="@+id/sticker_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sticker_picker"
+            android:layout_marginTop="25dp"
+            android:onClick="onClick"
+            android:textSize="20dp"
+            android:text="Sticker Picker"
+            android:paddingLeft="30dp"
+            android:textColor="#0086c7" />
     </LinearLayout>
 
 </RelativeLayout>
