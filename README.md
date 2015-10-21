@@ -207,7 +207,7 @@ Start with creation two meta-data on your AndroidManifest.xml.
 
 |Key|Value|
 ---|---
-|ROKOMobiAPIURL|rmsws.stage.rokolabs.com/external/v1|
+|ROKOMobiAPIURL|api.roko.mobi/v1|
 |ROKOMobiAPIToken|<a href="https://portal.roko.mobi/settings" target="_blank">%YOUR_API_FROM_SERVER%</a>|
 
 Declare and initialize instance variable dataSource, before start rokosticker activity ,
@@ -300,7 +300,7 @@ RokoMobi.start(this);
 
 |Key|Value|
 ---|---
-|ROKOMobiAPIURL|rmsws.stage.rokolabs.com/external/v1|
+|ROKOMobiAPIURL|api.roko.mobi/v1|
 |ROKOMobiAPIToken|<a href="https://portal.roko.mobi/settings" target="_blank">%YOUR_API_FROM_SERVER%</a>|
 
 
