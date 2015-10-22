@@ -1,4 +1,4 @@
-# Roko Mobi Android
+﻿# Roko Mobi Android
 
 
 *This is a repository of all ROKO Mobi open source Android SDKs. The information below should serve as a usage guide for our Android SDKs. See the table of contents below for a complete list of the content featured in this document.*
@@ -7,11 +7,13 @@
 -------------------
 |[Roko Stickers][stickers]|
 |[Roko Share][share]|
-
+|[Roko Push][push]|
+|[Roko Analytics][analytics]|
 
 [stickers]: #rokostickers-usage-guide
 [share]: #rokoshare-usage-guide
-
+[push]: #rokopush-usage-guide
+[analytics]: #rokoanalytics-usage-guide
 
 ## ROKOStickers Usage Guide
 
@@ -36,12 +38,14 @@ There are two ways to build your Android project: Eclipse  or Android Studio.
 ```
 
 
+---
 
 2) Add this android Library as dependency to your application project: 
 
 ```
 RokoMobi
 ```
+---
 3) Add required permissions and the sticker activity to your AndroidManifest.xml
 ```
     <uses-permission android:name="android.permission.INTERNET" />
@@ -62,7 +66,7 @@ RokoMobi
         </activity>
 
 ```
-
+---
 4) Init RokoMobi in your application or activity's onCreate
 ```
 RokoMobi.start(this);
@@ -207,7 +211,7 @@ Start with creation two meta-data on your AndroidManifest.xml.
 
 |Key|Value|
 ---|---
-|ROKOMobiAPIURL|api.roko.mobi/v1|
+|ROKOMobiAPIURL|rmsws.stage.rokolabs.com/external/v1|
 |ROKOMobiAPIToken|<a href="https://portal.roko.mobi/settings" target="_blank">%YOUR_API_FROM_SERVER%</a>|
 
 Declare and initialize instance variable dataSource, before start rokosticker activity ,
@@ -275,12 +279,14 @@ There are two ways to build your Android project: Eclipse  or Android Studio.
 ```
 [File]->Import->General->Existing Projects into Workspace->Browse->Select [RokoMobi]
 ```
+---
 
 ####2) Add this android Library as dependency to your application project: 
 
 ```
 RokoMobi
 ```
+---
 ####3) Add required permissions to your AndroidManifest.xml
 ```
     <uses-permission android:name="android.permission.INTERNET" />
@@ -291,6 +297,7 @@ RokoMobi
 
 
 ```
+---
 ####4) Init RokoMobi in your application or activity's onCreate
 ```
 RokoMobi.start(this);
@@ -298,10 +305,7 @@ RokoMobi.start(this);
 
 ####5) Generate the API Token by registering your project on ROKO Mobi Portal. Add «ROKOMobiAPIURL», «ROKOMobiAPIToken» meta-data on your AndroidManifest.xml.
 
-|Key|Value|
----|---
-|ROKOMobiAPIURL|api.roko.mobi/v1|
-|ROKOMobiAPIToken|<a href="https://portal.roko.mobi/settings" target="_blank">%YOUR_API_FROM_SERVER%</a>|
+![](Images/APITokens.png)
 
 
 ###Sharing Content with ROKOShare
@@ -428,3 +432,79 @@ sharesettings.channels = new ArrayList<Channel>();
 sharesettings.channels.add(twitterChannel);
 sharesettings.channels.add(fbChannel);
 ```
+
+## ROKOPush Usage guide
+
+ROKOPush is a simple component that allows you to handle Push Notifications.
+
+### Subscribe to push notifications from ROKO Portal
+1) Add ROKOMobiGCMSenderID meta-data to your application in AndroidManifest.xml
+```
+        <meta-data
+            android:name="ROKOMobiGCMSenderID"
+            android:value="970843798000" />
+```
+
+2) Add permission and receiver to your AndroidManifest.xml
+```
+    <!-- Only this application can receive the messages and registration result -->
+    <permission
+        android:name="com.rokolabs.rokostickers.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.rokolabs.rokostickers.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+        <receiver
+            android:name="com.rokomobi.sdk.push.GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter android:permission="com.google.android.c2dm.permission.SEND" >
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.rokolabs.rokostickers" />
+            </intent-filter>
+            <intent-filter android:permission="com.google.android.c2dm.permission.SEND" >
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.rokolabs.rokostickers" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.rokomobi.sdk.push.GCMIntentService"></service>        
+    
+````
+
+### Handle ROKO Notifications
+
+You can use a very simple API call to register a listener for notification
+
+```Java
+		ROKOPush.setPushLisener(new OnPushMessageListener() {
+			
+			@Override
+			public void onPushMessage(Context ctx, Intent data) {
+				
+			}
+		});
+```
+
+ROKOLogger is the main class with the only significant method:
+```Java
+	/**
+	 * Sends analytic event to ROKO Analytics. Stores message in local db if
+	 * server is not avaliable
+	 * 
+	 * @param events
+	 *            events to send
+	 */
+	public static void addEvent(Event... events)
+```
+To add an Event. Sample:
+```Java
+	ROKOLogger.addEvent(new Event("_ROKO.Stickers.Open"));
+```
+The example above sends event with name "_ROKO.Stickers.Open" without additional parameters.
+
+To optimize traffic events are packed in batches. Batches are sending when the size of the current batch is growed up to 50 events or 5 seconds elapsed since the last sending. Also every batch contains basic information about device: model, operating system etc.
