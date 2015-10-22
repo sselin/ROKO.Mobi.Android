@@ -1,4 +1,4 @@
-﻿# Roko Mobi Android
+# Roko Mobi Android
 
 
 *This is a repository of all ROKO Mobi open source Android SDKs. The information below should serve as a usage guide for our Android SDKs. See the table of contents below for a complete list of the content featured in this document.*
@@ -9,11 +9,13 @@
 |[Roko Share][share]|
 |[Roko Push][push]|
 |[Roko Analytics][analytics]|
+|[Roko StickerPicker][stickerpicker]
 
 [stickers]: #rokostickers-usage-guide
 [share]: #rokoshare-usage-guide
 [push]: #rokopush-usage-guide
 [analytics]: #rokoanalytics-usage-guide
+[stickerpicker]: #rokostickerpicker-usage-guide
 
 ## ROKOStickers Usage Guide
 
@@ -105,7 +107,7 @@ On call this sticker activity with two buttons (call it takePhotoButton and choo
 ####2) Configure ROKOStickers' behavior & content:
 
 
-You may chose to register your project on ROKO Mobi Portal, which provides easy-to-use GUI, or to configure the ROKOStickers framework and manage it’s content. If you do so, you may skip the following section. Alternatively you may chose to manage the ROKOStickers independently, in this case the following section is a guide for you.
+You may chose to register your project on ROKO Mobi Portal, which provides easy-to-use GUI, or to configure the ROKOStickers framework and manage it��s content. If you do so, you may skip the following section. Alternatively you may chose to manage the ROKOStickers independently, in this case the following section is a guide for you.
 
 #####a) Customize Composer View appearance.
 
@@ -211,7 +213,7 @@ Start with creation two meta-data on your AndroidManifest.xml.
 
 |Key|Value|
 ---|---
-|ROKOMobiAPIURL|api.roko.mobi/v1|
+|ROKOMobiAPIURL|api.roko.mobi/external/v1|
 |ROKOMobiAPIToken|<a href="https://portal.roko.mobi/settings" target="_blank">%YOUR_API_FROM_SERVER%</a>|
 
 Declare and initialize instance variable dataSource, before start rokosticker activity ,
@@ -234,7 +236,7 @@ Note:
 
 1) you may provide scale factor for the watermark from 0.1 to 1. Default is 1.
 
-#####e) Further customization:
+#####d) Further customization:
 
 Display sticker packs as:
 
@@ -303,7 +305,7 @@ RokoMobi
 RokoMobi.start(this);
 ```
 
-####5) Generate the API Token by registering your project on ROKO Mobi Portal. Add «ROKOMobiAPIURL», «ROKOMobiAPIToken» meta-data on your AndroidManifest.xml.
+####5) Generate the API Token by registering your project on ROKO Mobi Portal. Add ?ROKOMobiAPIURL?, ?ROKOMobiAPIToken? meta-data on your AndroidManifest.xml.
 
 ![](Images/APITokens.png)
 
@@ -331,7 +333,7 @@ ShareSettings shareSettings = rokoShare.getShareSettings();
 ```
 Note: ROKOShare framework offers the option of using two different messages: 
 
-- display message: to be displayed in the view controller’s «Message View» (please refer to the image in «Customize ROKOShare appearance» section), set via shareSettings.preview.staticText:
+- display message: to be displayed in the view controller��s ?Message View? (please refer to the image in ?Customize ROKOShare appearance? section), set via shareSettings.preview.staticText:
 
 - share message: to be actually shared via social services, set via shareSettings.setMessageBody:.
 
@@ -356,7 +358,7 @@ In this case you may skip the following sections
 
 ###Customizing view from your code
 
-####1) Customizing «Background View»:
+####1) Customizing ?Background View?:
 
 You may change: - background color; 
 To do that implement the following code:
@@ -367,7 +369,7 @@ ShareSettings shareSettings = rokoShare.getShareSettings();
 shareSettings.backgroundColor = "235, 211, 211, 211";//comma separated rgb/argb array.
 ```
 
-####2) Customizing «Prompt View»:
+####2) Customizing ?Prompt View?:
 
 You may change: - text color - title
 To do that implement the following code:
@@ -378,7 +380,7 @@ To do that implement the following code:
     sharesettings.preview.promptTextFont = "255, 255, 255";
 ```
 
-####3) Customizing «Message View»:
+####3) Customizing ?Message View?:
 
 You may change: - text color - text  
 
@@ -388,7 +390,7 @@ You may change: - text color - text
     sharesettings.preview.staticTextFont = "255, 255, 255";
 ```
 
-####4) Customizing «Close Button» & «Cancel Button»:
+####4) Customizing ?Close Button? & ?Cancel Button?:
 
 You may provide the following parameters specifically for 
 
@@ -397,7 +399,7 @@ You may provide the following parameters specifically for
 - image
 - font
 
-To do that implement the code below. Please note that the same code applies to «Cancel Button» To do that implement the following code:
+To do that implement the code below. Please note that the same code applies to ?Cancel Button? To do that implement the following code:
 
 ```Java
 sharesettings.navigation.useTextForCloseButton = true;
@@ -490,6 +492,7 @@ You can use a very simple API call to register a listener for notification
 		});
 ```
 
+## ROKOAnalytics Usage Guide
 ROKOLogger is the main class with the only significant method:
 ```Java
 	/**
@@ -508,3 +511,23 @@ To add an Event. Sample:
 The example above sends event with name "_ROKO.Stickers.Open" without additional parameters.
 
 To optimize traffic events are packed in batches. Batches are sending when the size of the current batch is growed up to 50 events or 5 seconds elapsed since the last sending. Also every batch contains basic information about device: model, operating system etc.
+
+## ROKOStickerPicker Usage Guide
+
+You can create the Sticker Picker fragment and add to the layout in your application, and get the selcted sticker via OnStickerPickedListener callback.
+```Java
+		//Create the StickerPicker fragment
+		Fragment picker = RokoMobi.createStickerPicker(this,
+				new OnStickerPickedListener() {
+
+					@Override
+					public void onStickerPicked(File imageFile, Sticker data) {
+						//handled the sticker picked
+						//image.setImageURI(Uri.fromFile(imageFile));
+					}
+				});
+
+		//Add the fragment to your layout
+		getFragmentManager().beginTransaction().replace(R.id.picker, picker)
+				.commit();
+```
