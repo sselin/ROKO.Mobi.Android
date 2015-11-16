@@ -1,0 +1,119 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/share_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/share_layout_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" >
+
+            <ImageButton
+                android:id="@+id/share_close"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/translucent_background"
+                android:src="@drawable/close" />
+
+            <TextView
+                android:id="@+id/share_close_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:text="close"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/message_view_thumbnail"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp" >
+
+                <TextView
+                    android:id="@+id/message_view_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center|left"
+                    android:maxLines="3"
+                    android:text="@string/messageView"
+                    android:textColor="@color/message_view_text_cl"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/prompt_view_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/prompt_view_df"
+                    android:textColor="@color/message_view_text_cl"
+                    android:textSize="16sp" />
+
+                <GridView
+                    android:id="@+id/share_channel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:columnWidth="60dp"
+                    android:gravity="center"
+                    android:horizontalSpacing="10dp"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="auto_fit"
+                    android:stretchMode="none"
+                    android:verticalSpacing="10dp" >
+                </GridView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/share_cancel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible" >
+
+        <Button
+            android:id="@+id/share_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:background="@null"
+            android:text="@string/cancel_bt"
+            android:textColor="@color/share_cancel_tx" />
+    </LinearLayout>
+
+</LinearLayout>

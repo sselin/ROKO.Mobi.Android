@@ -1,7 +1,0 @@
-bin/
-gen/
-*.class
-*.apk
-*.classpath
-.settings/
-proguard/

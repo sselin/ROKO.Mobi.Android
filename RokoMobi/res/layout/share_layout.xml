@@ -47,8 +47,9 @@
 
             <ImageView
                 android:id="@+id/message_view_thumbnail"
-                android:layout_width="120dp"
-                android:layout_height="200dp"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
                 android:layout_gravity="center_vertical"
                 android:visibility="gone" />
 
