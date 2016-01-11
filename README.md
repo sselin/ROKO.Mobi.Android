@@ -440,11 +440,16 @@ sharesettings.channels.add(fbChannel);
 ROKOPush is a simple component that allows you to handle Push Notifications.
 
 ### Subscribe to push notifications from ROKO Portal
-1) Add ROKOMobiGCMSenderID meta-data to your application in AndroidManifest.xml
+1) Add ROKOMobiGCMSenderID meta-data to your application. To do so, first add a string to res/values/strings.xml:
+
+```
+        <string name="gcm_sender">970843798000</string>
+```
+And then add reference to that string in AndroidManifest.xml
 ```
         <meta-data
             android:name="ROKOMobiGCMSenderID"
-            android:value="970843798000" />
+            android:value="@string/gcm_sender" />
 ```
 
 2) Add permission and receiver to your AndroidManifest.xml
@@ -491,6 +496,10 @@ You can use a very simple API call to register a listener for notification
 			}
 		});
 ```
+### Displaying your application's icon in notification center
+
+Add your application's icon to res/drawable/app_icon.png
+
 
 ## ROKOAnalytics Usage Guide
 ROKOLogger is the main class with the only significant method:
