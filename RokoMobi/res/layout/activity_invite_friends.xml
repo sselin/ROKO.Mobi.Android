@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/top_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:padding="15dp"
+            android:text="Close"
+            android:textColor="@color/red" />
+
+        <TextView
+            android:id="@+id/top_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Invite Friends"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B3B3B1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="30dp" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Earn Travel Credit"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/sub_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Give friends $20 towards their fist stay,\nand earn $20 when they book."
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/invite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/red"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:padding="12dp"
+            android:text="Invite Friends"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Share Your Link"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/share_edit_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/share_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="12dp"
+            android:text="www.rokolabs.com/china123"
+            android:textColor="@color/black" />
+
+        <ImageButton
+            android:id="@+id/share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:onClick="onClick"
+            android:padding="5dp"
+            android:src="@drawable/share_btn" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/view_past"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="View Past Invites\nTerms &amp;Conditions"
+        android:textColor="@color/red"
+        android:textSize="15sp"
+        android:textStyle="normal" />
+
+</LinearLayout>

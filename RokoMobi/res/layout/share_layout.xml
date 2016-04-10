@@ -49,7 +49,7 @@
                 android:id="@+id/message_view_thumbnail"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:layout_gravity="center_vertical"
                 android:visibility="gone" />
 
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:singleLine="true"
+                android:maxLines="3"
                 android:text="@string/prompt_view_df"
                 android:textColor="@color/message_view_text_cl"
                 android:textSize="16sp" />
@@ -161,6 +161,14 @@
             android:text="@string/cancel_bt"
             android:background="@null"
             android:textColor="@color/share_cancel_tx" />
+        <ImageButton 
+            android:id="@+id/share_cancel_img"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:minWidth="44dp"
+            android:scaleType="fitCenter"
+            android:background="@null"
+            />
     </LinearLayout>
 
 </LinearLayout>

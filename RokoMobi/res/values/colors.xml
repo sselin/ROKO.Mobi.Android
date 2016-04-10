@@ -11,5 +11,10 @@
     <color name="preview_bg">#2E2F56</color>
     <color name="preview_text_border">#3473AD</color>
     <color name="action_btn_bg">#38A1E9</color>
+    <color name="red">#E95157</color>
+    <color name="black">#55595B</color>
+    <color name="gray">#C8C8CD</color>
+    <color name="white">#ffffff</color>
+    <color name="bg_color">#F0F0F0</color>
    
 </resources>
