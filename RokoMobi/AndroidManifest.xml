@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rokolabs.lib.rokostickers"
     android:versionCode="18"
-    android:versionName="0.2.2" >
+    android:versionName="0.2.3" >
 
     <uses-sdk
         android:minSdkVersion="16"
